@@ -1,0 +1,122 @@
+:root {
+  --bg: #090d1a;
+  --panel: #121a2b;
+  --muted: #8ea0c0;
+  --text: #eff4ff;
+  --accent: #57d0ff;
+  --accent-2: #7f7bff;
+  --border: #2c3955;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Cairo", sans-serif;
+  background: radial-gradient(circle at 10% 0%, #1b2750, var(--bg) 38%);
+  color: var(--text);
+  line-height: 1.7;
+}
+.container { width: min(1120px, 92%); margin-inline: auto; }
+.section { padding: 5rem 0; }
+.muted { background: rgba(255,255,255,0.02); }
+.eyebrow { color: var(--accent); font-weight: 700; letter-spacing: .04em; }
+h1, h2, h3 { margin-top: 0; line-height: 1.3; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  backdrop-filter: blur(14px);
+  background: rgba(9,13,26,.7);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.nav-wrap { display: flex; align-items: center; justify-content: space-between; min-height: 72px; }
+.logo { color: var(--text); text-decoration: none; font-size: 1.4rem; font-weight: 800; }
+.logo span { color: var(--accent); }
+nav ul { display: flex; gap: 1.2rem; list-style: none; margin: 0; padding: 0; }
+nav a { color: var(--text); text-decoration: none; opacity: .9; }
+.menu-toggle { display:none; }
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #041124;
+  font-weight: 800;
+  padding: .75rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+}
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.btn-sm { padding: .5rem .95rem; }
+
+.hero { padding: 4.6rem 0 3rem; }
+.hero-grid { display:grid; grid-template-columns: 1.4fr .8fr; gap: 2rem; align-items: center; }
+.lead { color: var(--muted); max-width: 66ch; }
+.hero-card {
+  background: linear-gradient(180deg, #1a2340, #101a2d);
+  padding: 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+}
+.hero-card ul { padding-right: 1.1rem; }
+.stats { display:flex; gap:1rem; margin-top: 1.5rem; }
+.stats article { background: rgba(255,255,255,.03); padding: .8rem 1rem; border-radius: .8rem; border:1px solid var(--border); }
+.stats h2 { margin-bottom: .2rem; }
+
+.cards, .work-grid, .pricing-grid {
+  display:grid;
+  gap:1rem;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+}
+.card, .price-card, .work-grid article {
+  background: var(--panel);
+  border:1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.2rem;
+}
+.timeline { margin:0; padding-right:1.2rem; display:grid; gap:.7rem; }
+.price { font-size: 1.7rem; font-weight: 800; }
+.price span { font-size: 1rem; color: var(--muted); }
+.featured { box-shadow: 0 0 0 1px var(--accent), 0 12px 40px rgba(87,208,255,.16); }
+.badge {
+  display:inline-block;
+  background: rgba(87,208,255,.15);
+  color: var(--accent);
+  border:1px solid rgba(87,208,255,.5);
+  border-radius: 999px;
+  padding: .2rem .65rem;
+}
+
+.contact-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.contact-form {
+  background: var(--panel);
+  border:1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+label { display:block; margin-bottom: .8rem; }
+input, textarea {
+  width:100%; margin-top:.35rem; padding:.65rem;
+  border-radius:.65rem; border:1px solid var(--border);
+  background:#0c1321; color: var(--text);
+  font-family: inherit;
+}
+.form-note { min-height: 1.4rem; color: var(--accent); }
+
+.site-footer { border-top:1px solid rgba(255,255,255,.08); padding: 1rem 0; }
+.footer-wrap { display:flex; justify-content: space-between; align-items:center; gap:1rem; }
+.site-footer a { color: var(--accent); text-decoration:none; }
+
+@media (max-width: 900px) {
+  .hero-grid, .contact-grid, .cards, .work-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .menu-toggle { display:block; background:none; border:1px solid var(--border); color:var(--text); border-radius:.5rem; padding:.25rem .5rem; }
+  nav ul {
+    position: absolute;
+    left: 4%; right: 4%; top: 70px;
+    display:none; flex-direction: column;
+    background: #0b1222;
+    border:1px solid var(--border); border-radius: .8rem;
+    padding: .8rem;
+  }
+  nav ul.open { display:flex; }
+  .btn-sm { display:none; }
+}
